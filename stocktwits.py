@@ -2,7 +2,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import requests
+from security import safe_requests
 
 
 class Streamer():
@@ -45,7 +45,7 @@ class Streamer():
                  'filter': '{}'.format(filter)
                 }
 
-        r = requests.get(url, headers=self.headers, params=data)
+        r = safe_requests.get(url, headers=self.headers, params=data)
         if r.status_code != 200:
             raise Exception('Unable to Return Request {}'
                             .format(r.status_code))
@@ -87,7 +87,7 @@ class Streamer():
                  'filter': '{}'.format(filter)
                 }
 
-        r = requests.get(url, headers=self.headers, params=data)
+        r = safe_requests.get(url, headers=self.headers, params=data)
         if r.status_code != 200:
             raise Exception('Unable to Return Request {}'
                             .format(r.status_code))
@@ -126,7 +126,7 @@ class Streamer():
                  # 'callback' : '{}'.format(None),
                 }
 
-        r = requests.get(url, headers=self.headers, params=data)
+        r = safe_requests.get(url, headers=self.headers, params=data)
         if r.status_code != 200:
             raise Exception('Unable to Return Request {}'
                             .format(r.status_code))
